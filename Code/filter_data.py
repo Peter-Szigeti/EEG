@@ -7,16 +7,14 @@ import mne
 import sys # for supressing the stdout
 import time
 
-path_for_hardrive = input('Enter the full path for the hardrive where the "mouse_eeg" folder is: ')
+path = input('Enter the full path for the hardrive where the "mouse_eeg" folder is: ')
 today = round(time.time())
-path = path_for_hardrive + 'Mouse_EEG_ChronicSleepRestriction_Kim_et_al'
 os.chdir(path)
 sessions = {1:'BL',2:'SR1',3:'SR2',4:'SR3',5:'SR4',6:'SR5',7:'R1',8:'R2',9:'R3'}
 
 
 def load_filter_export(subid,sessid,time):
-    SAMPLING_RATE = 500
-    path =  path_for_hardrive + 'Mouse_EEG_ChronicSleepRestriction_Kim_et_al'
+    SAMPLING_RATE = 500'
     path = path + f'/data_BIDS/sub-0{subid}/ses-0{sessid}/eeg/fixed/'
     file = f'sub-0{subid}-{sessions[sessid]}_screew_fixed_{time}-{time+1}'
 

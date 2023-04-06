@@ -30,7 +30,7 @@ python3 -m venv myenv
 python3 -m Code/filter_data.py
 ```
 
-You will have to input the full path to the **mouse_eeg** folder at the start of the script.
+You will have to input the full path to the **Mouse_EEG_ChronicSleepRestriction_Kim_et_al** folder at the start of the script.
 
 The sessions should be fragmented into one hour fragments in a folder called **fixed**
 
