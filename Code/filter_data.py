@@ -7,7 +7,7 @@ import mne
 import sys # for supressing the stdout
 
 path_for_hardrive = ''
-path =  '/mouse_eeg/Mouse_EEG_ChronicSleepRestriction_Kim_et_al'
+path = path_for_hardrive + '/mouse_eeg/Mouse_EEG_ChronicSleepRestriction_Kim_et_al'
 os.chdir(path)
 sessions = {1:'BL',2:'SR1',3:'SR2',4:'SR3',5:'SR4',6:'SR5',7:'R1',8:'R2',9:'R3'}
 
