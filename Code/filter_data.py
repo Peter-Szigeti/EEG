@@ -9,14 +9,14 @@ import time
 
 path_for_hardrive = input('Enter the full path for the hardrive where the "mouse_eeg" folder is: ')
 today = round(time.time())
-path = path_for_hardrive + '/mouse_eeg/Mouse_EEG_ChronicSleepRestriction_Kim_et_al'
+path = path_for_hardrive + 'Mouse_EEG_ChronicSleepRestriction_Kim_et_al'
 os.chdir(path)
 sessions = {1:'BL',2:'SR1',3:'SR2',4:'SR3',5:'SR4',6:'SR5',7:'R1',8:'R2',9:'R3'}
 
 
 def load_filter_export(subid,sessid,time):
     SAMPLING_RATE = 500
-    path =  path_for_hardrive + '/mouse_eeg/Mouse_EEG_ChronicSleepRestriction_Kim_et_al'
+    path =  path_for_hardrive + 'Mouse_EEG_ChronicSleepRestriction_Kim_et_al'
     path = path + f'/data_BIDS/sub-0{subid}/ses-0{sessid}/eeg/fixed/'
     file = f'sub-0{subid}-{sessions[sessid]}_screew_fixed_{time}-{time+1}'
 
@@ -33,11 +33,11 @@ def load_filter_export(subid,sessid,time):
     # create a RawArray object from the NumPy array and MNE Info object
     raw = mne.io.RawArray(data, info)
     try:
-        os.mkdir(path + f'filtered{today}')
+        os.mkdir(path + f'filtered_{today}')
     except FileExistsError:
         print('Folder already exists')
 
-    export_path = path + f'/filtered{today}/' + file + '_filtered.fdt'
+    export_path = path + f'/filtered_{today}/' + file + '_filtered.fdt'
     mne.export.export_raw(export_path,raw,'EEGLAB', overwrite=True)
     # Signal to Noise Ratio
     return data.shape[1]/eeg_data.shape[0]
