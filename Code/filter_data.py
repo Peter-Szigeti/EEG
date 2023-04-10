@@ -22,7 +22,7 @@ def load_filter_export(subid,sessid,time):
     eeg_data = raw.get_data().T
 
     acc = eeg_data[:,2].reshape(-1,1)
-    sd = 13 # number of standard deviation away from the mean
+    sd = 13 # standard deviation
     idx = filter_signal(acc, num_std=sd, padding_before_noise=2*SAMPLING_RATE, padding_after_noise=2*SAMPLING_RATE, max_or_sum=True, abs_or_pow=True)
     mask = np.ones(eeg_data.shape[0], dtype=bool)
     mask[idx] = False
